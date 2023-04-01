@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>15 PUZZLE GAME</title>
+		<style type = "text/css">
+body			{  
+			  background-attachment: fixed;
+			  background-repeat: no-repeat;
+}
+	  
+.special 	{
+			  border-style: solid;
+              border-color: black;
+              border-width: 10px;
+              margin-left: auto;
+			  margin-right: auto;
+			  text-align: center;
+}
+
+p 			{ 
+			  color: grey;
+			  text-align: center; 
+}
+			
+h2 			{
+			  color: white;
+			  text-align: center;
+}
+			
+.cell 		{
+              width: 60px;
+              height: 60px;
+              margin: 10px;
+              text-align: center;
+              background-color: white;
+              font-weight: bold;
+              font-size: xx-large;
+              padding: 10px;
+}
+
+.empty 		{
+              background-color: red;
+}
+</style>
+<script type="text/javascript">
+var empty;
+var Number_of_moves;
+var checkWin = false;
+var tileID = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+window.addEventListener("load", startTimer, false);
+function start() 
+{
+    Number_of_moves = 0;
+    checkWin = false;
+    for(var i=0; i < 16; i++) {
+        var tmp = document.getElementById(i);
+        tmp.className = "cell ";
+    }
+    randomNumber = tileID.sort(function () { return (Math.round(Math.random())-0.5);});
+    while(!Problem.prototype.is_solvable(randomNumber)) {
+        randomNumber = tileID.sort(function () { return (Math.round(Math.random())-0.5);});
+    }
+    for(var i=0; i < 16; i++) {
+        var tmp = document.getElementById(i);
+        if(randomNumber[i] == 16) {
+            tmp.className = "cell empty";
+            tmp.innerHTML = "";
+            empty = i;
+        }
+        else
+            tmp.innerHTML = randomNumber[i];
+    }
+}
+function doClick(x)
+{
+    if(checkWin)
+        return;
+    if(x.id != empty+'') {
+        var emptyI = Math.floor(empty/4);
+        var emptyJ = empty % 4;
+        var id_selected = Number(x.id);
+        var selectedI = Math.floor(id_selected/4);
+        var selectedJ = id_selected % 4;
+        if((Math.abs(emptyI - selectedI) == 1 && emptyJ == selectedJ) ||
+           (Math.abs(emptyJ - selectedJ) == 1 && emptyI == selectedI)) {
+            document.getElementById(empty).className = "cell";
+            document.getElementById(empty).innerHTML = x.innerHTML;           
+            x.className = "cell empty";
+            x.innerHTML = '';           
+            empty = id_selected;
+            Number_of_moves++;           
+            if(isDone()){
+                checkWin = true;
+                document.getElementById("moves").innerHTML = "CONGRATS! YOU SOLVED 15-PUZZLE!!!";
+				if(confirm("Would you like to play again?"))
+					   window.location.reload();
+            }
+        }
+    }
+}
+Array.prototype.clone = function() { return this.slice(0); };
+Array.prototype.swap = function(i1,i2) {
+    var copy = this.clone();
+    var tmp = copy[i1];
+    copy[i1] = copy[i2];
+    copy[i2] = tmp;
+    return copy;
+};
+var Problem = function(start_state) {
+    this.init_state = start_state;
+    return this;
+}
+Problem.prototype.is_solvable = function(start) {
+    start = start.clone();    start.splice(start.indexOf(16), 1);
+    start[15] = 16;
+    var count = 0;
+    for(var i = 0; i < 15; i++) {
+        if(start[i] != i+1) {
+            count++;
+            var j = start.indexOf(i+1);
+            start[j] = start[i];
+            start[i] = i+1;
+        }
+    }
+    return count % 2 == 0;
+}
+function isDone() {
+    return document.getElementById('0').innerHTML == '1' &&
+        document.getElementById('1').innerHTML == '2' &&
+        document.getElementById('2').innerHTML == '3' &&
+        document.getElementById('3').innerHTML == '4' &&
+        document.getElementById('4').innerHTML == '5' &&
+        document.getElementById('5').innerHTML == '6' &&
+        document.getElementById('6').innerHTML == '7' &&
+        document.getElementById('7').innerHTML == '8' &&
+        document.getElementById('8').innerHTML == '9' &&
+        document.getElementById('9').innerHTML == '10' &&
+        document.getElementById('10').innerHTML == '11' &&
+        document.getElementById('11').innerHTML == '12' &&
+        document.getElementById('12').innerHTML == '13' &&
+        document.getElementById('13').innerHTML == '14' &&
+        document.getElementById('14').innerHTML == '15';
+}
+function startTimer()
+{
+    window.setInterval("updateTime()", 1000);
+} 
+    </script>
+    </head>
+    <body onload="start()" bgcolor="grey">
+      <center><h1>15-Puzzle-Game</h1></center>
+       <table class="special">
+        <tr>
+          <td class="cell" onclick="doClick(this)" id="0">1</td>
+          <td class="cell" onclick="doClick(this)" id="1">2</td>
+          <td class="cell" onclick="doClick(this)" id="2">3</td>
+          <td class="cell" onclick="doClick(this)" id="3">4</td>
+        </tr>
+        <tr>
+          <td class="cell" onclick="doClick(this)" id="4">5</td>
+          <td class="cell" onclick="doClick(this)" id="5">6</td>
+          <td class="cell" onclick="doClick(this)" id="6">7</td>
+          <td class="cell" onclick="doClick(this)" id="7">8</td>
+        </tr>
+        <tr>
+          <td class="cell" onclick="doClick(this)" id="8">9</td>
+          <td class="cell" onclick="doClick(this)" id="9">10</td>
+          <td class="cell" onclick="doClick(this)" id="10">11</td>
+          <td class="cell" onclick="doClick(this)" id="11">12</td>
+        </tr>
+        <tr>
+          <td class="cell" onclick="doClick(this)" id="12">13</td>
+          <td class="cell" onclick="doClick(this)" id="13">14</td>
+          <td class="cell" onclick="doClick(this)" id="14">15</td>
+          <td class="cell" onclick="doClick(this)" id="15"></td>
+        </tr>
+      </table><br><br>
+      <center><button onclick="window.location.reload()">RESTART</button></center>
+       
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>detect pop-up-blocking</title>
+    <script>
+      function detectPopupBlock() {
+        var popup = window.open(null,"","new", "width=100,height=100");
+        if (!popup) {
+          document.writeln("Popup is displayed");
+        } else {
+          popup.close();
+          document.writeln("pop-up was disabled");
+        }
+      }
+    </script>
+  </head>
+  <body bgcolor="grey"><center>
+    <button onclick="detectPopupBlock()">BLOCK POP-UP</button>
+  </center></body>
+</html>
