@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+      <meta charset = "utf-8">
+      <title>SIGN-UP FORM</title>
+      <link rel="icon" type="image/x-icon" href="favicon.ico">
+   </head>
+   <body bgcolor="grey"> 
+      
+   <form name="myform" method="post" action="submit.html" 
+   onsubmit="return form()" > 
+   <center> <h1>Sign-up Page</h1>
+   Name: <input type="text" name="name" placeholder= "Enter your name "autofocus><br/><br/>  
+   Last name :	<input type="text" name="lname" placeholder= "Enter your last name "><br><br/>
+   Date of birth:	<input type="date" name="dob"><br><br/>
+   Phone number:	<input type="tel" name="phoneno" placeholder= "Enter your phone number"><br><br/>
+   Gender:<input type="radio" name="gender" value=”genderm”>Male <input 
+   type="radio" name="gender" value=”genderf”>Female<br><br/>
+   Password: <input type="password" name="password" placeholder= "Enter your password"><br/><br/>  
+   Confirm password: <input type="password" name="cpassword" placeholder= "Re-enter your password"><br><br/>
+   College e-mail id:	<input type="text" name="mail"placeholder= "Enter your mail-id"><br><br/>
+   Address:<br><textarea
+   cols="25"rows="4"name="Address" placeholder= "Enter your address"></textarea><br><br/> 
+   Pincode:<input type="text" name="pin" placeholder= "Enter your pincode"><br><br/>
+   Select your interest:
+   <input type = "checkbox" name = "art" value = "on"> Art
+   <input type = "checkbox" name = "sport" value = "on"> Sport
+   <input type = "checkbox" name = "music" value = "on"> Music
+   <br><br/>
+   Current semester:<select name="sem">
+   <br><option>1</option> <option>2</option> <option>3
+   </option> <option>4</option> <option>5</option> 
+   <option>6</option> <option>7</option> 
+   <option>8</option></select>
+
+   <br><br/>
+   Upload picture of recent semester marksheet:<br><input type = "file" name = "fileupload" accept = "image/*" />
+
+
+   <br><br/>
+   <!-- <input type = "image" name = "imagebutton" src = "images.jpg" /><br><br/> -->
+   <br>
+   <input type="submit" name = "submit"  value="SUBMIT"> 
+   <input type="reset"name = "reset" value="RESET"> </center>
+   </form>  
+</body>
+</html>
