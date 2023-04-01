@@ -1,0 +1,63 @@
+<!Doctype HTML>
+<html>
+    <head>
+        <title>Dropdown</title>
+        <style>
+body{background-image:url(BG5.jfif);
+  background-attachment: fixed;
+  height:100%;
+  background-size: cover;
+  background-position: center; 
+background-repeat: no-repeat ;}
+  .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.department {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #f1f1f1;
+  min-width: 160px;
+}
+
+.department a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .department {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color:grey;
+  color: #f1f1f1;
+}
+</style>
+</head>
+<body ><center>
+  <button class="Home">Home</button>
+  <button class="About us">About us</button>
+  <button class="Awards">Awards</button>
+  <button class="Academics">Academics</button>
+  <button class="Faculty">Faculty</button>
+<div class="dropdown">
+    <button class="dropbtn">Department</button>
+    <div class="department">
+      <a href="#">Civil</a>
+      <a href="#">EEE</a>
+      <a href="#">ECE</a>
+      <a href="#">CSE</a>
+      <a href="#">MECH</a>
+      <a href="#">IT</a>
+      <a href="#">BIO-TECH</a>
+      <a href="#">MBA</a>
+    </div>
+    <button class="Library">Library</button>  
+  </div></center>
+</body>
+</html>
