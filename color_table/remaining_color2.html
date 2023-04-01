@@ -1,0 +1,49 @@
+<html>
+<head>
+	<title>COLOUR on click TABLE</title>
+	<style>
+		th,td{
+            border: 15px double black;
+            font-size: 230%;
+            text-align: center;
+            text-decoration: none;
+            font-size: larger;
+            color: BLACK;
+        }
+	</style>
+</head>
+<body bgcolor="grey"><center>
+	<table id="colorTable"  style="width:60%;height: 70%; border: 2px solid; ">
+    <caption style="color: black;"><h3>COLOUR PALETTE</h3></caption>
+        <tr>
+          <td class="color" data-color="#FF0000">#FF0000</td>
+          <td class="color" data-color="#00FF00">#00FF00</td>
+          <td class="color" data-color="#0000FF">#0000FF</td>
+        </tr>
+        <tr>
+          <td class="color" data-color="#FFFF00">#FFFF00</td>
+          <td class="color" data-color="#00FFFF">#00FFFF</td>
+          <td class="color" data-color="#FF00FF">#FF00FF</td>
+        </tr>
+        <tr>
+          <td class="color" data-color="#FF00FF">#FF00FF</td>
+          <td class="color" data-color="#808000">#808000</td>
+          <td class="color" data-color="#009688">#009688</td>
+        </tr>
+      </table>
+
+	<script>
+    const cells = document.querySelectorAll('.color');
+    cells.forEach(cell => {
+    cell.addEventListener('click', () => {
+    const color = cell.getAttribute('data-color');
+    cells.forEach(c => {
+      if (c !== cell) {
+        c.style.backgroundColor = color;
+      }
+    });
+  });
+});
+	</script>
+</body></center>
+</html>

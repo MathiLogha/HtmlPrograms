@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>COLOUR odd even TABLE</title>
+	<style>
+    th,td{
+          border: 15px double black;
+          font-size: 230%;
+          text-align: center;
+          text-decoration: none;
+          font-size: larger;
+          color: BLACK;
+      }
+  </style>
+</head>
+<body bgcolor="grey"><center>
+  <table id="colorTable"  style="width:60%;height: 70%; border: 2px solid; ">
+    <caption style="color: black;"><h3>COLOUR PALETTE</h3></caption>
+    <tr>
+          <td id="1">#FF0000</td>
+          <td id="2">#00FF00</td>
+          <td id="3">#0000FF</td>
+        </tr>
+        <tr>
+          <td id="4">#FFFF00</td>
+          <td id="5">#FF00FF</td>
+          <td id="6">#00FFFF</td>
+        </tr>
+        <tr>
+          <td id="7">#800000</td>
+          <td id="8">#ADD8E6</td>
+          <td id="9">#2196F3</td>
+        </tr>
+      </table>
+      
+
+      <script>
+        var cells = document.getElementsByTagName("td");
+        for (var i = 0; i < cells.length; i++) {
+          cells[i].onclick = function() {
+            if (this.id % 2 == 0) {
+              var color = this.innerHTML;
+              for (var j = 0; j < cells.length; j++) {
+                if (cells[j].id % 2 != 0) {
+                  cells[j].style.backgroundColor = color;
+                }
+              }
+            } else {
+              var color = this.innerHTML;
+              for (var j = 0; j < cells.length; j++) {
+                if (cells[j].id % 2 == 0) {
+                  cells[j].style.backgroundColor = color;
+                }
+              }
+            }
+          };
+        }
+      </script>
+      
+</body>
+</html>

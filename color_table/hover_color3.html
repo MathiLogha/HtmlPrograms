@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>COLOUR TABLE</title>
+    <style>
+      th,td{
+            border: 15px double black;
+            font-size: 230%;
+            text-align: center;
+            text-decoration: none;
+            font-size: larger;
+            color: BLACK;
+        }
+    </style>
+  </head>
+  <body bgcolor="grey"><center>
+    <table id="colorTable"  style="width:60%;height: 70%; border: 2px solid; ">
+      <caption style="color: black;"><h3>COLOUR PALETTE</h3></caption>
+      <tr>
+        <td>#00FFFF</td>
+        <td>#C0C0C0</td>
+        <td>#ADD8E6</td>
+      </tr>
+      <tr>
+        <td>#800000</td>
+        <td>#FF0000</td>
+        <td>#2196F3</td>
+      </tr>
+      <tr>
+        <td>#FF00FF</td>
+        <td>#808000</td>
+        <td>#009688</td>
+      </tr>
+    </table>
+   
+    <script>
+    const table = document.getElementById("colorTable");
+   
+    table.addEventListener("mouseover", function(event) {
+      const target = event.target;
+      if (target.tagName === "TD") {
+        target.style.color = target.textContent;
+      }
+    });
+   
+    table.addEventListener("mouseout", function(event) {
+      const target = event.target;
+      if (target.tagName === "TD") {
+        target.style.color = "#000000";
+      }
+    });
+    </script>
+  </body></center>
+</html>
